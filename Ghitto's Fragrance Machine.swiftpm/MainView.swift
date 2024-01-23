@@ -8,8 +8,29 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var selectedTab = "add"
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            CustomerView()
+                .frame(height: 90)
+            TestView()
+                .frame(width: 300, height: 400)
+            TabsView(selectedTab: $selectedTab)
+                .frame(height: 50)
+            if selectedTab == "add"
+            {
+                AddView()
+            }
+            else if selectedTab == "commit"
+            {
+                CommitView()
+            }
+            else if selectedTab == "push"
+            {
+                PushView()
+            }
+        }
     }
 }
 

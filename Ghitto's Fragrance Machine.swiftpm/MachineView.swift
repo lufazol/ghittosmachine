@@ -6,10 +6,22 @@
 //
 
 import SwiftUI
+import SpriteKit
 
 struct MachineView: View {
+
+    let gameScene = SKScene(fileNamed: "TestScene")
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            if let gameScene {
+                SpriteView(scene: gameScene)
+                    .edgesIgnoringSafeArea([.top, .bottom])
+                    .background(Color.black)
+                    .navigationTitle("")
+            }
+        }
     }
 }
 

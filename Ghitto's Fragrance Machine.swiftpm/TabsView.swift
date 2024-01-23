@@ -8,11 +8,38 @@
 import SwiftUI
 
 struct TabsView: View {
+    @Binding var selectedTab: String
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Button("git add") {
+                // Action for Button 1
+                selectedTab = "add"
+            }
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            
+            Button("git commit -m") {
+                // Action for Button 2
+                selectedTab = "commit"
+            }
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            
+            Button("git push") {
+                // Action for Button 3
+                selectedTab = "push"
+            }
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+        }
+        .padding()
     }
 }
 
 #Preview {
-    TabsView()
+    TabsView(selectedTab: .constant("add"))
 }

@@ -9,7 +9,13 @@ import SwiftUI
 
 struct CommitView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Color.purple
+            .edgesIgnoringSafeArea(.all)
+            .overlay(
+                Text("Commit View")
+                    .foregroundColor(.white)
+                    .padding()
+            )
     }
 }
 

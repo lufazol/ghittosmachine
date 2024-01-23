@@ -9,7 +9,13 @@ import SwiftUI
 
 struct PushView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Color.orange
+            .edgesIgnoringSafeArea(.all)
+            .overlay(
+                Text("Push View")
+                    .foregroundColor(.white)
+                    .padding()
+            )
     }
 }
 
