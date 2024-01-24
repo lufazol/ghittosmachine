@@ -19,7 +19,7 @@ struct TabsView: View {
             .padding()
             .background(Color.blue)
             .foregroundColor(.white)
-            
+
             Button("git commit -m") {
                 // Action for Button 2
                 selectedTab = "commit"

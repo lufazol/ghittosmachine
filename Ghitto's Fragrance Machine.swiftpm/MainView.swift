@@ -9,15 +9,15 @@ import SwiftUI
 
 struct MainView: View {
     @State private var selectedTab = "add"
-
+    
     var body: some View {
         VStack {
             CustomerView()
                 .frame(height: 90)
             TestView()
-                .frame(width: 300, height: 400)
+                .frame(width: 396, height: 440)
             TabsView(selectedTab: $selectedTab)
-                .frame(height: 50)
+                .frame(height: 35)
             if selectedTab == "add"
             {
                 AddView()
