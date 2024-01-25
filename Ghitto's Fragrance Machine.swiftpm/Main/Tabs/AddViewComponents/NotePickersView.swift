@@ -25,10 +25,9 @@ struct NotePickersView: View {
     @State private var selectedBaseNote = "praline"
     let baseNotes = ["vanilla", "praline", "amber"]
     
-    @State private var selectedNotesGroup = ["rose", "jasmine", "pink pepper"]
-
     var body: some View {
         HStack {
+            // render first picker
             Picker("Category", selection: $selectedCategory) {
                 ForEach(categories, id: \.self) {
                     Text($0)
@@ -37,39 +36,31 @@ struct NotePickersView: View {
             .pickerStyle(.wheel)
             .foregroundColor(.white)
             
-            
-            if selectedCategory == "top"
-            {
-                Picker("Category", selection: $gameState.noteToAdd) {
+            // render second picker
+            Picker("Notes", selection: $gameState.noteToAdd) {
+                switch selectedCategory {
+                case "top":
+                    ForEach(topNotes, id: \.self) {
+                        Text($0)
+                    }
+                case "heart":
+                    ForEach(heartNotes, id: \.self) {
+                        Text($0)
+                    }
+                case "base":
+                    ForEach(baseNotes, id: \.self) {
+                        Text($0)
+                    }
+                default:
                     ForEach(topNotes, id: \.self) {
                         Text($0)
                     }
                 }
-                .pickerStyle(.wheel)
-                .foregroundColor(.white)
             }
+            .pickerStyle(.wheel)
+            .foregroundColor(.white)
+            .labelsHidden()
             
-            else if selectedCategory == "heart"
-            {
-                Picker("Category", selection: $gameState.noteToAdd) {
-                    ForEach(heartNotes, id: \.self) {
-                        Text($0)
-                    }
-                }
-                .pickerStyle(.wheel)
-                .foregroundColor(.white)
-            }
-            
-            else
-            {
-                Picker("Category", selection: $gameState.noteToAdd) {
-                    ForEach(baseNotes, id: \.self) {
-                        Text($0)
-                    }
-                }
-                .pickerStyle(.wheel)
-                .foregroundColor(.white)
-            }
         }
     }
 }
