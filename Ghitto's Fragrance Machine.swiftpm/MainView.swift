@@ -14,7 +14,7 @@ struct MainView: View {
         VStack {
             CustomerView()
                 .frame(height: 90)
-            TestView()
+            MachineView()
                 .frame(width: 396, height: 440)
             TabsView(selectedTab: $selectedTab)
                 .frame(height: 35)
