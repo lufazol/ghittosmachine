@@ -19,7 +19,7 @@ class GameState: ObservableObject {
     @Published var noNotesAdded: Bool = false
     @Published var noteAlreadyAdded: Bool = false
     @Published var notesCleaned: Bool = false
-    @Published var noteToAdd: String = ""
+    @Published var noteToAdd: String = "rose"
 }
 
 class Perfume: ObservableObject {

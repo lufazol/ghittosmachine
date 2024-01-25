@@ -59,11 +59,22 @@ struct NotePickersView: View {
             }
             .pickerStyle(.wheel)
             .foregroundColor(.white)
-            .labelsHidden()
-            
+            .onChange(of: selectedCategory) { category in
+                switch selectedCategory {
+                case "top":
+                    gameState.noteToAdd = topNotes[0]
+                case "heart":
+                    gameState.noteToAdd = heartNotes[0]
+                case "base":
+                    gameState.noteToAdd = baseNotes[0]
+                default:
+                    gameState.noteToAdd = "vanilla"
+                }
+            }
         }
     }
 }
+
 
 #Preview {
     NotePickersView()
