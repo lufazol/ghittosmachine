@@ -15,7 +15,7 @@ struct MainView: View {
             CustomerView()
                 .frame(height: 90)
             MachineView()
-                .frame(width: 396, height: 440)
+                .frame(width: 396, height: 420)
             TabsView(selectedTab: $selectedTab)
                 .frame(height: 35)
             if selectedTab == "add"

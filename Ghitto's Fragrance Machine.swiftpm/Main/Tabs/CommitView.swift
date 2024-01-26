@@ -8,13 +8,29 @@
 import SwiftUI
 
 struct CommitView: View {
+    @State private var texts = ["test", "test2", "test3"]
+    @State private var data = ""
+    @State private var bottles: [String] = ["bottle1", "bottle2", "bottle3", "bottle4"]
+
     var body: some View {
-        Color.purple
+        Rectangle()
+            .foregroundColor(.purple)
             .edgesIgnoringSafeArea(.all)
             .overlay(
-                Text("Commit View")
-                    .foregroundColor(.white)
-                    .padding()
+                HStack {
+                    Spacer()
+                    VStack {
+                            Spacer()
+
+                            BottlesButtonsView()
+                            
+                            Spacer()
+                            
+                            ResetHardButtonView()
+                    }
+                    Spacer()
+                    CommitButtonView()
+                }
             )
     }
 }

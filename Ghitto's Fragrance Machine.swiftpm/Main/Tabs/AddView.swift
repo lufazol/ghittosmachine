@@ -12,7 +12,8 @@ struct AddView: View {
     @EnvironmentObject var gameState: GameState
 
     var body: some View {
-        Color.blue
+        Rectangle()
+            .foregroundColor(.purple)
             .edgesIgnoringSafeArea(.all)
             .overlay(
                 HStack {
@@ -29,8 +30,6 @@ struct AddView: View {
                     }
 
                     AddButtonView()
-                
-                    Spacer()
                 }
             )
     }

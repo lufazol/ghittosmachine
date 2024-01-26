@@ -48,7 +48,7 @@ struct MachineView: View {
                 }
             }
             .frame(width: 180, height: 130)
-            .position(x: 270, y: 120)
+            .position(x: 270, y: 90)
             
             
             ZStack (alignment: .leading) {
@@ -80,10 +80,10 @@ struct MachineView: View {
                 }
             }
             .frame(width: 160, height: 130) // Set the width and h
-            .position(x: 280, y: 300)
+            .position(x: 280, y: 270)
 
             ZStack {
-                Color.blue
+                Color.gray
                 
                 if (gameState.exceededNotesWarning)
                 {
@@ -108,7 +108,7 @@ struct MachineView: View {
                 }
             }
             .frame(width: 280, height: 40) // Set the width and h
-            .position(x: 200, y: 415)
+            .position(x: 200, y: 395)
         }
 
     }
