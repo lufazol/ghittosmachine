@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var selectedTab = "add"
+    @EnvironmentObject var gameState: GameState
     
     var body: some View {
         VStack {
@@ -16,17 +16,17 @@ struct MainView: View {
                 .frame(height: 90)
             MachineView()
                 .frame(width: 396, height: 420)
-            TabsView(selectedTab: $selectedTab)
+            TabsView()
                 .frame(height: 35)
-            if selectedTab == "add"
+            if gameState.selectedTab == "add"
             {
                 AddView()
             }
-            else if selectedTab == "commit"
+            else if gameState.selectedTab == "commit"
             {
                 CommitView()
             }
-            else if selectedTab == "push"
+            else if gameState.selectedTab == "push"
             {
                 PushView()
             }

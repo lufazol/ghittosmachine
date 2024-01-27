@@ -15,19 +15,20 @@ struct ResetHardButtonView: View {
         VStack {
             Button(action: {
                 // less than 4 notes and note not already added: add note and display text
-                if gameData.addedNotes.count > 0
+                if gameData.perfumeReady == nil
                 {
-                    gameData.addedNotes = []
-                    gameState.notesCleaned = true
+                    gameState.noPerfumeReadyWarning = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        gameState.notesCleaned = false
+                        gameState.noPerfumeReadyWarning = false
                     }
                 }
                 else
                 {
-                    gameState.noNotesAdded = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        gameState.noNotesAdded = false
+                    gameState.perfumeRemoved = true
+                    gameState.perfumeOnLog = false
+                    gameData.perfumeReady = nil
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                        gameState.perfumeRemoved = false
                     }
                 }
 

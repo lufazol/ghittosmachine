@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct TabsView: View {
-    @Binding var selectedTab: String
+    @EnvironmentObject var gameData: GameData
+    @EnvironmentObject var gameState: GameState
 
     var body: some View {
         HStack {
             Button("git add") {
                 // Action for Button 1
-                selectedTab = "add"
+                gameState.selectedTab = "add"
+                gameState.noteToAdd = "rose"
             }
             .padding()
             .background(Color.blue)
@@ -22,7 +24,7 @@ struct TabsView: View {
 
             Button("git commit -m") {
                 // Action for Button 2
-                selectedTab = "commit"
+                gameState.selectedTab = "commit"
             }
             .padding()
             .background(Color.blue)
@@ -30,7 +32,7 @@ struct TabsView: View {
             
             Button("git push") {
                 // Action for Button 3
-                selectedTab = "push"
+                gameState.selectedTab = "push"
             }
             .padding()
             .background(Color.blue)
@@ -41,5 +43,5 @@ struct TabsView: View {
 }
 
 #Preview {
-    TabsView(selectedTab: .constant("add"))
+    TabsView()
 }
