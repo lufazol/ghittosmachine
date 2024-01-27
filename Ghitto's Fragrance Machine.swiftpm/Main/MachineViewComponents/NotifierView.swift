@@ -54,6 +54,15 @@ struct NotifierView: View {
             } else if (gameState.noBottleSelectedWarning)
             {
                 Text("No bottle selected")
+                    .foregroundColor(.white)
+            } else if (gameState.perfumeBeingSent)
+            {
+                Text("git push")
+                    .foregroundColor(.white)
+            } else if (gameState.noPerfumeToSendWarning)
+            {
+                Text("No perfume ready to send")
+                    .foregroundColor(.white)
             }
         }
         .frame(width: 280, height: 40) // Set the width and h

@@ -18,7 +18,12 @@ struct GitLogView: View {
             Color.green
             VStack (alignment: .leading) {
                 Spacer()
-                if !gameState.perfumeRemoved {
+                if gameState.perfumeBeingSent {
+                    Text("sending perfume...")
+                        .padding()
+                    Spacer()
+                }
+                else if !gameState.perfumeRemoved {
                     VStack {
                         Text("git log")
                             .padding(.leading)
@@ -50,12 +55,11 @@ struct GitLogView: View {
                         Spacer()
                     }
                     Spacer()
-                } else {
+                } else  {
                     Text("cleaning...")
                         .padding()
                     Spacer()
                 }
-
             }
         }
         .frame(width: 200, height: 130) // Set the width and h

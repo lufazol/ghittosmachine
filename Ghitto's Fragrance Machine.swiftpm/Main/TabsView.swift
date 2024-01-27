@@ -19,7 +19,9 @@ struct TabsView: View {
                 gameState.noteToAdd = "rose"
             }
             .padding()
-            .background(Color.blue)
+            .background(
+                gameState.selectedTab == "add" ? Color.pink: Color.blue
+            )
             .foregroundColor(.white)
 
             Button("git commit -m") {
@@ -27,7 +29,9 @@ struct TabsView: View {
                 gameState.selectedTab = "commit"
             }
             .padding()
-            .background(Color.blue)
+            .background(
+                gameState.selectedTab == "commit" ? Color.pink: Color.blue
+            )
             .foregroundColor(.white)
             
             Button("git push") {
@@ -35,7 +39,9 @@ struct TabsView: View {
                 gameState.selectedTab = "push"
             }
             .padding()
-            .background(Color.blue)
+            .background(
+                gameState.selectedTab == "push" ? Color.pink: Color.blue
+            )
             .foregroundColor(.white)
         }
         .padding()

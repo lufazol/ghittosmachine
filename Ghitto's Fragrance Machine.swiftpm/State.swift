@@ -27,6 +27,8 @@ class GameState: ObservableObject {
     @Published var perfumeOnLog: Bool = false
     @Published var logIsFullWarning: Bool = false
     @Published var selectedTab: String = "add"
+    @Published var perfumeBeingSent: Bool = false
+    @Published var noPerfumeToSendWarning: Bool = false
 }
 
 class Perfume: ObservableObject {

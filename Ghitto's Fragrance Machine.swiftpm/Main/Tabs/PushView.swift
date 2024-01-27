@@ -8,13 +8,40 @@
 import SwiftUI
 
 struct PushView: View {
+    @EnvironmentObject var gameState: GameState
+    @EnvironmentObject var gameData: GameData
+
     var body: some View {
-        Color.orange
+        Rectangle()
+            .foregroundColor(.purple)
             .edgesIgnoringSafeArea(.all)
             .overlay(
-                Text("Push View")
-                    .foregroundColor(.white)
-                    .padding()
+                ZStack {
+                    Button (action: {
+                        if gameState.perfumeOnLog {
+                            gameState.perfumeOnLog = false
+                            gameData.perfumeReady = nil
+                            gameState.perfumeBeingSent = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                                gameState.perfumeBeingSent = false
+                            }
+                        } else {
+                            gameState.noPerfumeToSendWarning = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                gameState.noPerfumeToSendWarning = false
+                            }
+                        }
+                        
+                    }) {
+                        Circle()
+                            .frame(width: 150, height: 150)
+                            .foregroundColor(.yellow)
+                            .overlay(
+                                Text("send perfume")
+                                    .foregroundColor(.black)
+                            )
+                    }
+                }
             )
     }
 }
