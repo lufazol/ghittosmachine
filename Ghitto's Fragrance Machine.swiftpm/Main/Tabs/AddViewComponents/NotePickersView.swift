@@ -11,64 +11,61 @@ struct NotePickersView: View {
     @EnvironmentObject var gameData: GameData
     @EnvironmentObject var gameState: GameState
 
-    @State private var selectedCategory = "heart"
-    let categories = ["top", "heart", "base"]
+    //@State private var selectedCategory = "heart"
 
     @State private var selectedTopNote = "orange"
-    let topNotes = ["bergamot", "orange", "cherry"]
     
     @State private var selectedHeartNote = "jasmine"
-    let heartNotes = ["rose", "jasmine", "pink pepper"]
     
     @State private var selectedBaseNote = "praline"
-    let baseNotes = ["vanilla", "praline", "amber"]
     
     var body: some View {
         HStack {
             // render first picker
-            Picker("Category", selection: $selectedCategory) {
-                ForEach(categories, id: \.self) {
-                    Text($0)
+            Picker("Category", selection: $gameState.selectedCategory) {
+                ForEach(gameData.categories, id: \.self) { category in
+                    Text(category)
                 }
             }
             .pickerStyle(.wheel)
             .foregroundColor(.white)
-            
+
             // render second picker
             Picker("Notes", selection: $gameState.noteToAdd) {
-                switch selectedCategory {
+                switch gameState.selectedCategory {
                 case "top":
-                    ForEach(topNotes, id: \.self) {
-                        Text($0)
+                    ForEach(gameData.topNotes, id: \.self) { note in
+                        Text(note)
                     }
                 case "heart":
-                    ForEach(heartNotes, id: \.self) {
-                        Text($0)
+                    ForEach(gameData.heartNotes, id: \.self) { note in
+                        Text(note)
                     }
                 case "base":
-                    ForEach(baseNotes, id: \.self) {
-                        Text($0)
+                    ForEach(gameData.baseNotes, id: \.self) { note in
+                        Text(note)
                     }
                 default:
-                    ForEach(topNotes, id: \.self) {
-                        Text($0)
+                    ForEach(gameData.heartNotes, id: \.self) { note in
+                        Text(note)
                     }
                 }
             }
             .pickerStyle(.wheel)
-            .foregroundColor(.white)
-            .onChange(of: selectedCategory) { category in
-                switch selectedCategory {
+            .onChange(of: gameState.selectedCategory) { category in
+                switch gameState.selectedCategory {
                 case "top":
-                    gameState.noteToAdd = topNotes[0]
+                    gameState.noteToAdd = gameData.topNotes[0]
                 case "heart":
-                    gameState.noteToAdd = heartNotes[0]
+                    gameState.noteToAdd = gameData.heartNotes[0]
                 case "base":
-                    gameState.noteToAdd = baseNotes[0]
+                    gameState.noteToAdd = gameData.baseNotes[0]
                 default:
                     gameState.noteToAdd = "rose"
                 }
             }
+            .foregroundColor(.white)
+
         }
     }
 }

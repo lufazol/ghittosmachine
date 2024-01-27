@@ -18,17 +18,27 @@ struct PushView: View {
             .overlay(
                 ZStack {
                     Button (action: {
-                        if gameState.perfumeOnLog {
+                        if gameState.perfumeOnLog &&
+                           gameData.perfumeReady?.bottle == gameData.order?.bottle &&
+                            Set(gameData.perfumeReady!.notes) == Set(gameData.order!.notes)
+                        {
                             gameState.perfumeOnLog = false
+                            gameData.score += gameData.perfumeReady!.notes.count
                             gameData.perfumeReady = nil
                             gameState.perfumeBeingSent = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                                 gameState.perfumeBeingSent = false
                             }
-                        } else {
+                            gameData.generateOrder()
+                        } else if !gameState.perfumeOnLog {
                             gameState.noPerfumeToSendWarning = true
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                 gameState.noPerfumeToSendWarning = false
+                            }
+                        } else {
+                            gameState.wrongPerfumeWarning = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                                gameState.wrongPerfumeWarning = false
                             }
                         }
                         

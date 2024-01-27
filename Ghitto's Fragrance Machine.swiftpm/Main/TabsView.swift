@@ -10,9 +10,20 @@ import SwiftUI
 struct TabsView: View {
     @EnvironmentObject var gameData: GameData
     @EnvironmentObject var gameState: GameState
+    
+    let tabs: [String] = ["add", "commit", "push"]
 
     var body: some View {
         HStack {
+            Picker("tabs", selection: $gameState.selectedTab) {
+                ForEach(tabs, id: \.self) { tab in
+                    Text(tab)
+                }
+            }
+            .pickerStyle(.segmented)
+            .foregroundColor(.white)
+
+            /*
             Button("git add") {
                 // Action for Button 1
                 gameState.selectedTab = "add"
@@ -43,6 +54,7 @@ struct TabsView: View {
                 gameState.selectedTab == "push" ? Color.pink: Color.blue
             )
             .foregroundColor(.white)
+            */
         }
         .padding()
     }

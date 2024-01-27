@@ -63,6 +63,10 @@ struct NotifierView: View {
             {
                 Text("No perfume ready to send")
                     .foregroundColor(.white)
+            } else if (gameState.wrongPerfumeWarning)
+            {
+                Text("Wrong perfume! Clean up and start again :(")
+                    .foregroundColor(.white)
             }
         }
         .frame(width: 280, height: 40) // Set the width and h
