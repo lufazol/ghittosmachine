@@ -23,6 +23,7 @@ struct CommitButtonView: View {
                                 
                 gameData.addedNotes = []
                 gameState.bottleToAdd = ""
+                gameState.selectedBottle = ""
                 gameState.perfumeBeingAdded = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     gameState.perfumeBeingAdded = false

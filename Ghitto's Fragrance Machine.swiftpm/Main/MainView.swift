@@ -9,26 +9,31 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var gameState: GameState
+    @State var isAnimated: Bool = false
     
     var body: some View {
-        VStack {
-            CustomerView()
-                .frame(height: 90)
-            MachineView()
-                .frame(width: 396, height: 420)
-            TabsView()
-                .frame(height: 35)
-            if gameState.selectedTab == "add"
-            {
-                AddView()
-            }
-            else if gameState.selectedTab == "commit"
-            {
-                CommitView()
-            }
-            else if gameState.selectedTab == "push"
-            {
-                PushView()
+        if gameState.isInTutorial == true {
+            TutorialView()
+        } else {
+            VStack {
+                CustomerView()
+                    .frame(height: 90)
+                MachineView()
+                    .frame(width: 396, height: 420)
+                TabsView()
+                    .frame(height: 35)
+                if gameState.selectedTab == "add"
+                {
+                    AddView()
+                }
+                else if gameState.selectedTab == "commit"
+                {
+                    CommitView()
+                }
+                else if gameState.selectedTab == "push"
+                {
+                    PushView()
+                }
             }
         }
     }

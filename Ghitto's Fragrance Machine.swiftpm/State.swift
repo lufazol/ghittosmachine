@@ -26,11 +26,8 @@ class GameData: ObservableObject {
     }
 
     func generateOrder() {
-        print("function was called")
         var orderNotes: [String] = []
-        
-        print(orderNotes.count)
-        
+                
         let numberOfNotes = Int.random(in: 1...4)
         
         while orderNotes.count < numberOfNotes
@@ -42,8 +39,6 @@ class GameData: ObservableObject {
                 orderNotes.append(randomNote)
             }
         }
-        
-        print(orderNotes)
 
         self.order?.notes = Array(orderNotes)
         
@@ -52,6 +47,7 @@ class GameData: ObservableObject {
 }
 
 class GameState: ObservableObject {
+    @Published var tutorialCounter: Int = 0
     @Published var selectedCategory: String = "heart"
     @Published var bottleToAdd: String =  ""
     @Published var exceededNotesWarning: Bool = false
@@ -71,6 +67,8 @@ class GameState: ObservableObject {
     @Published var noPerfumeToSendWarning: Bool = false
     @Published var hasOrder: Bool = false
     @Published var wrongPerfumeWarning: Bool = false
+    @Published var isInTutorial: Bool = true
+    @Published var selectedBottle: String = ""
 }
 
 class Perfume: ObservableObject {

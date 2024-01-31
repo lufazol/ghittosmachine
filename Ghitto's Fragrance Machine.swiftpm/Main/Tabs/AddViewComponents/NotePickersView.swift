@@ -25,10 +25,10 @@ struct NotePickersView: View {
             Picker("Category", selection: $gameState.selectedCategory) {
                 ForEach(gameData.categories, id: \.self) { category in
                     Text(category)
+                        .foregroundColor(.white)
                 }
             }
             .pickerStyle(.wheel)
-            .foregroundColor(.white)
 
             // render second picker
             Picker("Notes", selection: $gameState.noteToAdd) {
@@ -36,18 +36,22 @@ struct NotePickersView: View {
                 case "top":
                     ForEach(gameData.topNotes, id: \.self) { note in
                         Text(note)
+                            .foregroundColor(.white)
                     }
                 case "heart":
                     ForEach(gameData.heartNotes, id: \.self) { note in
                         Text(note)
+                            .foregroundColor(.white)
                     }
                 case "base":
                     ForEach(gameData.baseNotes, id: \.self) { note in
                         Text(note)
+                            .foregroundColor(.white)
                     }
                 default:
                     ForEach(gameData.heartNotes, id: \.self) { note in
                         Text(note)
+                            .foregroundColor(.white)
                     }
                 }
             }
@@ -64,7 +68,6 @@ struct NotePickersView: View {
                     gameState.noteToAdd = "rose"
                 }
             }
-            .foregroundColor(.white)
 
         }
     }
