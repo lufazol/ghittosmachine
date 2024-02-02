@@ -35,6 +35,7 @@ struct ResetHardButtonView: View {
             }) {
                 Text("git reset --hard HEADˆ")
                     .foregroundColor(.white)
+                    .font(.custom("Noteworthy-Bold", size: 18))
                     .padding()
                     .frame(width: 240, height: 40)
                     .background(Color.red)

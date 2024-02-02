@@ -48,6 +48,7 @@ struct PushView: View {
                             .foregroundColor(.yellow)
                             .overlay(
                                 Text("send perfume")
+                                    .font(.custom("Noteworthy-Bold", size: 18))
                                     .foregroundColor(.black)
                             )
                     }

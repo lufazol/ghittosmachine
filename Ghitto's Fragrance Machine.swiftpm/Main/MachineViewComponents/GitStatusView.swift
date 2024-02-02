@@ -18,6 +18,7 @@ struct GitStatusView: View {
                 Spacer()
                 VStack {
                     Text("git status")
+                        .font(.custom("AmericanTypewriter", size: 16))
                         .padding(.leading)
                 }
                 Spacer()
@@ -25,14 +26,14 @@ struct GitStatusView: View {
                     if gameData.addedNotes.isEmpty
                     {
                         Text("No notes added")
-                            .font(.body)
+                            .font(.custom("AmericanTypewriter", size: 16))
                             .padding(.leading)
                     } else {
                         ForEach(gameData.addedNotes, id: \.self) { item in
                             Text(item)
-                                .font(.body)
                                 .foregroundColor(.blue)
                                 .padding(.leading)
+                                .font(.custom("AmericanTypewriter", size: 16))
                         }
                     }
                     Spacer()

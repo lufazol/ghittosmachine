@@ -43,6 +43,7 @@ struct CustomerView: View {
                                         Text(item)
                                             .foregroundColor(.white)
                                             .padding(.leading)
+                                            .font(.custom("AmericanTypewriter", size: 16))
                                     }
                                 }
                                 Spacer()

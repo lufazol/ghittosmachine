@@ -20,12 +20,14 @@ struct GitLogView: View {
                 Spacer()
                 if gameState.perfumeBeingSent {
                     Text("sending perfume...")
+                        .font(.custom("AmericanTypewriter", size: 16))
                         .padding()
                     Spacer()
                 }
                 else if !gameState.perfumeRemoved {
                     VStack {
                         Text("git log")
+                            .font(.custom("AmericanTypewriter", size: 16))
                             .padding(.leading)
                     }
                     Spacer()
@@ -33,7 +35,7 @@ struct GitLogView: View {
                         if gameData.perfumeReady == nil
                         {
                             Text("No perfume ready")
-                                .font(.body)
+                                .font(.custom("AmericanTypewriter", size: 16))
                                 .padding(.leading)
                         } else {
                             Spacer()
@@ -46,6 +48,7 @@ struct GitLogView: View {
                                     ForEach(gameData.perfumeReady!.notes, id: \.self) { item in
                                         Text(item)
                                             .foregroundColor(.white)
+                                            .font(.custom("AmericanTypewriter", size: 16))
                                             .padding(.leading)
                                     }
                                 }

@@ -26,6 +26,7 @@ struct NotePickersView: View {
                 ForEach(gameData.categories, id: \.self) { category in
                     Text(category)
                         .foregroundColor(.white)
+                        .font(.custom("Noteworthy-Bold", size: 20))
                 }
             }
             .pickerStyle(.wheel)
@@ -37,21 +38,25 @@ struct NotePickersView: View {
                     ForEach(gameData.topNotes, id: \.self) { note in
                         Text(note)
                             .foregroundColor(.white)
+                            .font(.custom("Noteworthy-Bold", size: 20))
                     }
                 case "heart":
                     ForEach(gameData.heartNotes, id: \.self) { note in
                         Text(note)
                             .foregroundColor(.white)
+                            .font(.custom("Noteworthy-Bold", size: 20))
                     }
                 case "base":
                     ForEach(gameData.baseNotes, id: \.self) { note in
                         Text(note)
                             .foregroundColor(.white)
+                            .font(.custom("Noteworthy-Bold", size: 20))
                     }
                 default:
                     ForEach(gameData.heartNotes, id: \.self) { note in
                         Text(note)
                             .foregroundColor(.white)
+                            .font(.custom("Noteworthy-Bold", size: 20))
                     }
                 }
             }

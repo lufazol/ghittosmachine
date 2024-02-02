@@ -15,24 +15,33 @@ struct MainView: View {
         if gameState.isInTutorial == true {
             TutorialView()
         } else {
-            VStack {
-                CustomerView()
-                    .frame(height: 90)
-                MachineView()
-                    .frame(width: 396, height: 420)
-                TabsView()
-                    .frame(height: 35)
-                if gameState.selectedTab == "add"
-                {
-                    AddView()
-                }
-                else if gameState.selectedTab == "commit"
-                {
-                    CommitView()
-                }
-                else if gameState.selectedTab == "push"
-                {
-                    PushView()
+            ZStack {
+                Image("wall")
+                    .resizable()
+                
+                Image("machine")
+                    .resizable()
+                    .offset(y: -5)
+                
+                VStack {
+                    CustomerView()
+                        .frame(height: 90)
+                    MachineView()
+                        .frame(width: 396, height: 420)
+                    TabsView()
+                        .frame(height: 35)
+                    if gameState.selectedTab == "add"
+                    {
+                        AddView()
+                    }
+                    else if gameState.selectedTab == "commit"
+                    {
+                        CommitView()
+                    }
+                    else if gameState.selectedTab == "push"
+                    {
+                        PushView()
+                    }
                 }
             }
         }

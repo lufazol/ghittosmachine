@@ -18,6 +18,7 @@ struct TabsView: View {
             Picker("tabs", selection: $gameState.selectedTab) {
                 ForEach(tabs, id: \.self) { tab in
                     Text(tab)
+                        .font(.custom("Noteworthy-Bold", size: 12))
                 }
             }
             .pickerStyle(.segmented)

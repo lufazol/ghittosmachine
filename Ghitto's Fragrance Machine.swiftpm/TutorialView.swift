@@ -230,7 +230,7 @@ struct TutorialView: View {
                 VStack {
                     Text(tutorialTexts[gameState.tutorialCounter])
                         .foregroundColor(.black)
-                        .font(.custom("Helvetica", size: 20))
+                        .font(.custom("Noteworthy-Bold", size: 20))
                         .fixedSize(horizontal: false, vertical: true)
                         .frame(width: 290)
                         .padding()
