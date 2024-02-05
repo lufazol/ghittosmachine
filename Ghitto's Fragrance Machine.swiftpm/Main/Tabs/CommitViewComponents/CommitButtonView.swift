@@ -25,17 +25,17 @@ struct CommitButtonView: View {
                 gameState.bottleToAdd = ""
                 gameState.selectedBottle = ""
                 gameState.perfumeBeingAdded = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
                     gameState.perfumeBeingAdded = false
                 }
                 gameState.perfumeOnLog = true
-                withAnimation(Animation.easeInOut(duration: 2.0)) {
+                withAnimation(Animation.easeInOut(duration: 1.0)) {
                     gameState.isOnPlatform = true
                 }
-                withAnimation(Animation.easeInOut(duration: 2.5).delay(3.0)) {
+                withAnimation(Animation.easeInOut(duration: 1.5).delay(2)) {
                     gameState.isMoving = true
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                     gameState.isOnPlatform = false
                     gameState.isMoving = false
                 }

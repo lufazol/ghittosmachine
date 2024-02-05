@@ -32,6 +32,12 @@ struct GitLogView: View {
                                 .padding()
                             Spacer()
                         }
+                        else if gameState.perfumeBeingAdded {
+                            Text("filling bottle...")
+                                .font(.custom("AmericanTypewriter", size: 16))
+                                .padding()
+                            Spacer()
+                        }
                         else if !gameState.perfumeRemoved {
                             HStack {
                                 Text("git log")

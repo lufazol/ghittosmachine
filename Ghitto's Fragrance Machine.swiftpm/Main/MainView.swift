@@ -9,9 +9,34 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var gameState: GameState
-    @EnvironmentObject var gameDate: GameData
+    @EnvironmentObject var gameData: GameData
 
     @State var isAnimated: Bool = false
+    
+    func getEmptyBottle() -> String
+    {
+        if gameData.perfumeReady?.bottle == "bottle1"
+        {
+            return "emptybottle1"
+        }
+        else if gameData.perfumeReady?.bottle == "bottle2"
+        {
+            return "emptybottle2"
+        }
+        else if gameData.perfumeReady?.bottle == "bottle3"
+        {
+            return "emptybottle3"
+        }
+        else if gameData.perfumeReady?.bottle == "bottle4"
+        {
+            return "emptybottle4"
+        }
+        else {
+            return ""
+        }
+    }
+    
+
     
     var body: some View {
         if gameState.isInTutorial == true {
@@ -21,9 +46,9 @@ struct MainView: View {
                 Image("wall")
                     .resizable()
                 
-                Image(gameDate.perfumeReady?.bottle ?? "")
+                Image(getEmptyBottle())
                     .resizable()
-                    .frame(width: 50, height: 50)
+                    .frame(width: 44, height: 46)
                     .offset(x: gameState.isMoving ? 60 : -105, y: gameState.isOnPlatform ? 32 : 92)
                 
                 Image("machine")

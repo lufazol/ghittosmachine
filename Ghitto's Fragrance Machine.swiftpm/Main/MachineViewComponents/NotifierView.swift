@@ -46,7 +46,7 @@ struct NotifierView: View {
                     .font(.custom("AmericanTypewriter-Bold", size: 16))
             } else if (gameState.perfumeBeingAdded)
             {
-                Text("git commit -m 'perfume'")
+                Text("git commit -m 'bottle'")
                     .font(.custom("AmericanTypewriter-Bold", size: 16))
             } else if (gameState.noPerfumeReadyWarning)
             {
