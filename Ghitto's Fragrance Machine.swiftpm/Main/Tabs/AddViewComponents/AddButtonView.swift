@@ -40,11 +40,11 @@ struct AddButtonView: View {
             }
 
         }) {
-            Image(systemName: "heart.fill")
+            Image(systemName: "plus.rectangle.portrait.fill")
                 .resizable()
-                .frame(width: 30, height: 30)
+                .frame(width: 30, height: 40)
                 .padding()
-                .foregroundColor(.red)
+                .foregroundColor(Color(hex: 0xF08080))
         }
         .padding(.trailing)
     }

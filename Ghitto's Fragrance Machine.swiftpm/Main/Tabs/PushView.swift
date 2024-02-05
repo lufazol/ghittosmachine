@@ -13,7 +13,7 @@ struct PushView: View {
 
     var body: some View {
         Rectangle()
-            .foregroundColor(.purple)
+            .foregroundColor(Color(hex: 0xFAE1DD))
             .edgesIgnoringSafeArea(.all)
             .overlay(
                 ZStack {
@@ -45,14 +45,22 @@ struct PushView: View {
                     }) {
                         Circle()
                             .frame(width: 150, height: 150)
-                            .foregroundColor(.yellow)
+                            .foregroundColor(Color(hex: 0x87D1FF))
                             .overlay(
                                 Text("send perfume")
                                     .font(.custom("Noteworthy-Bold", size: 18))
                                     .foregroundColor(.black)
                             )
+                            .background(
+                                Circle()
+                                    .stroke(Color.black, lineWidth: 2)
+                            )
                     }
                 }
+            )
+            .background(
+                Rectangle()
+                    .stroke(Color.black, lineWidth: 3)
             )
     }
 }

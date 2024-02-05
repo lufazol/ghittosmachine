@@ -13,7 +13,7 @@ struct AddView: View {
 
     var body: some View {
         Rectangle()
-            .foregroundColor(.purple)
+            .foregroundColor(Color(hex: 0xFAE1DD))
             .edgesIgnoringSafeArea(.all)
             .overlay(
                 HStack {
@@ -31,6 +31,10 @@ struct AddView: View {
 
                     AddButtonView()
                 }
+            )
+            .background(
+                Rectangle()
+                    .stroke(Color.black, lineWidth: 3)
             )
     }
 }

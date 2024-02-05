@@ -14,23 +14,32 @@ struct CustomerView: View {
     var body: some View {
         Rectangle()
             .frame(width: 400, height: 170)
-            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+            .foregroundColor(Color(hex: 0xFAE1DD))
             .edgesIgnoringSafeArea(.all)
+            .background(
+                Rectangle()
+                    .stroke(Color.black, lineWidth: 1.5)
+                    .offset(y: -18)
+            )
             .overlay(
-                
                 HStack {
                     Spacer()
                     ZStack {
-                        Color.pink
+                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                            .fill(Color(hex: 0xFFBC75))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                    .stroke(Color.black, lineWidth: 1)
+                            )
                         
                         if gameData.order == nil
                         {
                             Text("No order yet")
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .padding()
                         } else if gameState.perfumeBeingSent {
                             Text("Thanks!\nNew order arriving...")
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .padding()
                         } else {
                             HStack {
@@ -41,7 +50,7 @@ struct CustomerView: View {
                                 VStack (alignment: .leading) {
                                     ForEach(gameData.order!.notes, id: \.self) { item in
                                         Text(item)
-                                            .foregroundColor(.white)
+                                            .foregroundColor(.black)
                                             .padding(.leading)
                                             .font(.custom("AmericanTypewriter", size: 16))
                                     }

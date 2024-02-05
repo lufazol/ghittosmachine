@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var gameState: GameState
+    @EnvironmentObject var gameDate: GameData
+
     @State var isAnimated: Bool = false
     
     var body: some View {
@@ -18,6 +20,11 @@ struct MainView: View {
             ZStack {
                 Image("wall")
                     .resizable()
+                
+                Image(gameDate.perfumeReady?.bottle ?? "")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .offset(x: gameState.isMoving ? 60 : -105, y: gameState.isOnPlatform ? 32 : 92)
                 
                 Image("machine")
                     .resizable()

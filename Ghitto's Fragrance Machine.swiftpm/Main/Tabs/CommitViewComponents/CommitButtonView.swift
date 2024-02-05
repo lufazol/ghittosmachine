@@ -29,6 +29,16 @@ struct CommitButtonView: View {
                     gameState.perfumeBeingAdded = false
                 }
                 gameState.perfumeOnLog = true
+                withAnimation(Animation.easeInOut(duration: 2.0)) {
+                    gameState.isOnPlatform = true
+                }
+                withAnimation(Animation.easeInOut(duration: 2.5).delay(3.0)) {
+                    gameState.isMoving = true
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                    gameState.isOnPlatform = false
+                    gameState.isMoving = false
+                }
             } else if gameState.perfumeOnLog
             {
                 gameState.logIsFullWarning = true
@@ -43,11 +53,11 @@ struct CommitButtonView: View {
                 }
             }
         }) {
-            Image(systemName: "heart.fill")
+            Image(systemName: "plus.rectangle.portrait.fill")
                 .resizable()
-                .frame(width: 30, height: 30)
+                .frame(width: 30, height: 40)
                 .padding()
-                .foregroundColor(.red)
+                .foregroundColor(Color(hex: 0xF08080))
         }
         .padding(.trailing)
     }

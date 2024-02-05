@@ -19,20 +19,37 @@ struct BottlesButtonsView: View {
                     gameState.bottleToAdd = "bottle1"
                     gameState.selectedBottle = "bottle1"
                 }) {
-                    Image("bottle1")
-                        .resizable()
-                        .frame(width: size, height: size)
-                        .border(Color.pink, width: gameState.selectedBottle == "bottle1" ? 6 : 0)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                            .fill(gameState.selectedBottle == "bottle1" ? Color(hex: 0xF08080) : Color(hex: 0xFEC5BB))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                    .stroke(Color.black, lineWidth: 1)
+                            )
+                        
+                        Image("bottle1")
+                            .resizable()
+                            .frame(width: size, height: size)
+                    }
+
                 }
                 .padding(.horizontal)
                 Button(action: {
                     gameState.bottleToAdd = "bottle2"
                     gameState.selectedBottle = "bottle2"
                 }) {
-                    Image("bottle2")
-                        .resizable()
-                        .frame(width: size, height: size)
-                        .border(Color.pink, width: gameState.selectedBottle == "bottle2" ? 6 : 0)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                            .fill(gameState.selectedBottle == "bottle2" ? Color(hex: 0xF08080) : Color(hex: 0xFEC5BB))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                    .stroke(Color.black, lineWidth: 1)
+                            )
+                        
+                        Image("bottle2")
+                            .resizable()
+                            .frame(width: size, height: size)
+                    }
                 }
                 .padding(.horizontal)
             }
@@ -41,20 +58,36 @@ struct BottlesButtonsView: View {
                     gameState.bottleToAdd = "bottle3"
                     gameState.selectedBottle = "bottle3"
                 }) {
-                    Image("bottle3")
-                        .resizable()
-                        .frame(width: size, height: size)
-                        .border(Color.pink, width: gameState.selectedBottle == "bottle3" ? 6 : 0)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                            .fill(gameState.selectedBottle == "bottle3" ? Color(hex: 0xF08080) : Color(hex: 0xFEC5BB))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                    .stroke(Color.black, lineWidth: 1)
+                            )
+                        
+                        Image("bottle3")
+                            .resizable()
+                            .frame(width: size, height: size)
+                    }
                 }
                 .padding(.horizontal)
                 Button(action: {
                     gameState.bottleToAdd = "bottle4"
                     gameState.selectedBottle = "bottle4"
                 }) {
-                    Image("bottle4")
-                        .resizable()
-                        .frame(width: size, height: size)
-                        .border(Color.pink, width: gameState.selectedBottle == "bottle4" ? 6 : 0)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                            .fill(gameState.selectedBottle == "bottle4" ? Color(hex: 0xF08080) : Color(hex: 0xFEC5BB))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                    .stroke(Color.black, lineWidth: 1)
+                            )
+                        
+                        Image("bottle4")
+                            .resizable()
+                            .frame(width: size, height: size)
+                    }
                 }
                 .padding(.horizontal)
             }

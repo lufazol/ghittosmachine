@@ -33,12 +33,16 @@ struct RestoreButtonView: View {
 
             }) {
                 Text("git restore .")
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     .font(.custom("Noteworthy-Bold", size: 18))
                     .padding()
                     .frame(width: 240, height: 40)
-                    .background(Color.red)
+                    .background(Color(hex: 0xF08080))
                     .cornerRadius(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 1)
+                    )
             }
         }
     }

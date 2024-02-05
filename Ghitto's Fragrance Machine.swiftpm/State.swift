@@ -69,6 +69,8 @@ class GameState: ObservableObject {
     @Published var wrongPerfumeWarning: Bool = false
     @Published var isInTutorial: Bool = false
     @Published var selectedBottle: String = ""
+    @Published var isOnPlatform: Bool = false
+    @Published var isMoving: Bool = false
 }
 
 class Perfume: ObservableObject {
