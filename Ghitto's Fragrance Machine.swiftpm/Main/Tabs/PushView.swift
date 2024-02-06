@@ -22,6 +22,7 @@ struct PushView: View {
                            gameData.perfumeReady?.bottle == gameData.order?.bottle &&
                             Set(gameData.perfumeReady!.notes) == Set(gameData.order!.notes)
                         {
+                            gameState.soundPlayer1.playSound(named: "bottleDelivered")
                             gameState.perfumeOnLog = false
                             gameData.score += gameData.perfumeReady!.notes.count
                             gameData.perfumeReady = nil
@@ -31,11 +32,13 @@ struct PushView: View {
                             }
                             gameData.generateOrder()
                         } else if !gameState.perfumeOnLog {
+                            gameState.errorSoundPlayer.playSound(named: "error")
                             gameState.noPerfumeToSendWarning = true
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                 gameState.noPerfumeToSendWarning = false
                             }
                         } else {
+                            gameState.errorSoundPlayer.playSound(named: "error")
                             gameState.wrongPerfumeWarning = true
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                                 gameState.wrongPerfumeWarning = false

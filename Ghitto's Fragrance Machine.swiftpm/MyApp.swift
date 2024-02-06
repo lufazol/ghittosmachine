@@ -12,6 +12,9 @@ struct MyApp: App {
                 .environmentObject(gameData)
                 .environmentObject(gameState)
                 .preferredColorScheme(.light)
+                .onAppear {
+                    gameState.backgroundSoundPlayer.playSound(named: "gameSound", volume: 0.07, loops: -1)
+                }
         }
     }
 }

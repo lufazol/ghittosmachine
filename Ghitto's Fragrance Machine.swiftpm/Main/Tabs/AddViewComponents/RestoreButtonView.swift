@@ -25,6 +25,7 @@ struct RestoreButtonView: View {
                 }
                 else
                 {
+                    gameState.errorSoundPlayer.playSound(named: "error")
                     gameState.noNotesAdded = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                         gameState.noNotesAdded = false

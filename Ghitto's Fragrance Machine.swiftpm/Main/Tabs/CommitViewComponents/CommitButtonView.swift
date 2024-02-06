@@ -26,8 +26,10 @@ struct CommitButtonView: View {
                 gameState.selectedBottle = ""
                 gameState.perfumeBeingAdded = true
                 
-                SoundManager.instance.playSound()
-                gameState.soundPlayer.playSound(named: "platformSound")
+                gameState.soundPlayer1.playSound(named: "platformSound")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    gameState.soundPlayer2.playSound(named: "bottleFill")
+                }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
                     gameState.perfumeBeingAdded = false
                 }
@@ -52,12 +54,14 @@ struct CommitButtonView: View {
                 }
             } else if gameState.perfumeOnLog
             {
+                gameState.errorSoundPlayer.playSound(named: "error")
                 gameState.logIsFullWarning = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     gameState.logIsFullWarning = false
                 }
             } else if gameData.addedNotes.count > 0 && gameState.bottleToAdd == "" && !gameState.perfumeOnLog
             {
+                gameState.errorSoundPlayer.playSound(named: "error")
                 gameState.noBottleSelectedWarning = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     gameState.noBottleSelectedWarning = false

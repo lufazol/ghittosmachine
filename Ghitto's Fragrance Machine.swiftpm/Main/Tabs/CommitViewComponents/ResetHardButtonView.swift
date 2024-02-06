@@ -17,6 +17,7 @@ struct ResetHardButtonView: View {
                 // less than 4 notes and note not already added: add note and display text
                 if gameData.perfumeReady == nil
                 {
+                    gameState.errorSoundPlayer.playSound(named: "error")
                     gameState.noPerfumeReadyWarning = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                         gameState.noPerfumeReadyWarning = false

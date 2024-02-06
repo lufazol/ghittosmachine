@@ -74,7 +74,11 @@ class GameState: ObservableObject {
     @Published var isMoving: Bool = false
     @Published var isDropping: Bool = false
     @Published var mixingShouldFall: Bool = false
-    @Published var soundPlayer = SoundPlayer()
+    @Published var soundPlayer1 = SoundPlayer()
+    @Published var soundPlayer2 = SoundPlayer()
+    @Published var soundPlayer3 = SoundPlayer()
+    @Published var errorSoundPlayer = SoundPlayer()
+    @Published var backgroundSoundPlayer = SoundPlayer()
 }
 
 class Perfume: ObservableObject {
@@ -82,29 +86,10 @@ class Perfume: ObservableObject {
     @Published var notes: [String] = []
 }
 
-class SoundManager {
-    
-    static let instance = SoundManager()
-    
-    var player: AVAudioPlayer?
-    
-    func playSound() {
-        
-        guard let url = Bundle.main.url(forResource: "platformSound", withExtension: ".mp3") else {return}
-
-        do {
-            player = try AVAudioPlayer(contentsOf: url)
-            player?.play()
-        } catch let error {
-            print("Error playing sound.")
-        }
-    }
-}
-
 class SoundPlayer {
     var audioPlayer: AVAudioPlayer?
 
-    func playSound(named fileName: String, fileType: String = "mp3") {
+    func playSound(named fileName: String, fileType: String = "mp3", volume: Float = 0.4, loops: Int = 0) {
         guard let path = Bundle.main.path(forResource: fileName, ofType: fileType) else {
             print("Sound file not found: \(fileName)")
             return
@@ -112,7 +97,8 @@ class SoundPlayer {
 
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-            print(path)
+            audioPlayer?.volume = volume
+            audioPlayer?.numberOfLoops = loops
             audioPlayer?.play()
         } catch {
             print("Error playing sound: \(error.localizedDescription)")
