@@ -32,11 +32,22 @@ struct MainView: View {
             return "emptybottle4"
         }
         else {
-            return ""
+            return "emptybottle1"
         }
     }
     
 
+    func getMachineStatus() -> String
+    {
+        if gameState.notesCleaned
+        {
+            return "machineEmpty"
+        } else if gameData.addedNotes == [] {
+            return "machineCleanSolution"
+        } else {
+            return "machineFragranceSolution"
+        }
+    }
     
     var body: some View {
         if gameState.isInTutorial == true {
@@ -45,16 +56,26 @@ struct MainView: View {
             ZStack {
                 Image("wall")
                     .resizable()
-                
+
+                Image(gameState.mixingShouldFall ? "mixing" : "")
+                    .resizable()
+                    .frame(width: 22, height: 60)
+                    .offset(x: -105, y: gameState.mixingShouldFall ? 50 : -40)
+
                 Image(getEmptyBottle())
                     .resizable()
                     .frame(width: 44, height: 46)
                     .offset(x: gameState.isMoving ? 60 : -105, y: gameState.isOnPlatform ? 32 : 92)
-                
-                Image("machine")
+
+                Image(getMachineStatus())
                     .resizable()
                     .offset(y: -5)
                 
+                Image(gameState.isDropping ? "drops" : "")
+                    .resizable()
+                    .frame(width: 30, height: 60)
+                    .offset(x: -105, y: gameState.isDropping ? -40 : -100)
+
                 VStack {
                     CustomerView()
                         .frame(height: 90)

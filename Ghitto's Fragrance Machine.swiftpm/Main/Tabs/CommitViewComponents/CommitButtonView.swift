@@ -25,12 +25,23 @@ struct CommitButtonView: View {
                 gameState.bottleToAdd = ""
                 gameState.selectedBottle = ""
                 gameState.perfumeBeingAdded = true
+                
+                SoundManager.instance.playSound()
+                gameState.soundPlayer.playSound(named: "platformSound")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
                     gameState.perfumeBeingAdded = false
                 }
                 gameState.perfumeOnLog = true
                 withAnimation(Animation.easeInOut(duration: 1.0)) {
                     gameState.isOnPlatform = true
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    withAnimation(Animation.easeInOut(duration: 1)) {
+                        gameState.mixingShouldFall = true
+                    }
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    gameState.mixingShouldFall = false
                 }
                 withAnimation(Animation.easeInOut(duration: 1.5).delay(2)) {
                     gameState.isMoving = true

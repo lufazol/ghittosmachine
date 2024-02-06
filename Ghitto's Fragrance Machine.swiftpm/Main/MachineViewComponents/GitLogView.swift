@@ -25,14 +25,15 @@ struct GitLogView: View {
                 .fill(Color(hex: 0xD8E2DC))
                 .overlay(
                     VStack (alignment: .leading) {
-                        Spacer()
                         if gameState.perfumeBeingSent {
+                            Spacer()
                             Text("sending perfume...")
                                 .font(.custom("AmericanTypewriter", size: 16))
                                 .padding()
                             Spacer()
                         }
                         else if gameState.perfumeBeingAdded {
+                            Spacer()
                             Text("filling bottle...")
                                 .font(.custom("AmericanTypewriter", size: 16))
                                 .padding()

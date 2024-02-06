@@ -5,6 +5,7 @@
 //  Created by Luan Fazolin on 23/01/24.
 //
 
+import AVFoundation
 import Foundation
 
 class GameData: ObservableObject {
@@ -71,9 +72,50 @@ class GameState: ObservableObject {
     @Published var selectedBottle: String = ""
     @Published var isOnPlatform: Bool = false
     @Published var isMoving: Bool = false
+    @Published var isDropping: Bool = false
+    @Published var mixingShouldFall: Bool = false
+    @Published var soundPlayer = SoundPlayer()
 }
 
 class Perfume: ObservableObject {
     @Published var bottle: String = ""
     @Published var notes: [String] = []
+}
+
+class SoundManager {
+    
+    static let instance = SoundManager()
+    
+    var player: AVAudioPlayer?
+    
+    func playSound() {
+        
+        guard let url = Bundle.main.url(forResource: "platformSound", withExtension: ".mp3") else {return}
+
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+        } catch let error {
+            print("Error playing sound.")
+        }
+    }
+}
+
+class SoundPlayer {
+    var audioPlayer: AVAudioPlayer?
+
+    func playSound(named fileName: String, fileType: String = "mp3") {
+        guard let path = Bundle.main.path(forResource: fileName, ofType: fileType) else {
+            print("Sound file not found: \(fileName)")
+            return
+        }
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+            print(path)
+            audioPlayer?.play()
+        } catch {
+            print("Error playing sound: \(error.localizedDescription)")
+        }
+    }
 }

@@ -18,6 +18,12 @@ struct AddButtonView: View {
             {
                 gameData.addedNotes.append(gameState.noteToAdd)
                 gameState.noteAdded = true
+                withAnimation(Animation.easeInOut(duration: 0.7)) {
+                    gameState.isDropping = true
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                    gameState.isDropping = false
+                }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     gameState.noteAdded = false
                 }

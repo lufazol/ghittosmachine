@@ -23,37 +23,46 @@ struct GitStatusView: View {
                 .fill(Color(hex: 0xD8E2DC))
                 .overlay(
                     VStack {
-                        HStack {
-                            Text("git status")
-                                .font(.custom("AmericanTypewriter-Bold", size: 16))
-                                .padding(.leading)
+                        if gameState.notesCleaned {
                             Spacer()
-                        }
-                        .padding(.top)
-                        Spacer()
-                        VStack (alignment: .leading) {
-                            if gameData.addedNotes.isEmpty
-                            {
-                                HStack {
-                                    Text("No notes added")
-                                        .font(.custom("AmericanTypewriter", size: 16))
-                                        .padding(.leading)
-                                    Spacer()
-                                }
-
-                            } else {
-                                ForEach(gameData.addedNotes, id: \.self) { item in
+                            Text("cleaning mixing...")
+                                .font(.custom("AmericanTypewriter", size: 16))
+                                .padding()
+                            Spacer()
+                        } else {
+                            HStack {
+                                Text("git status")
+                                    .font(.custom("AmericanTypewriter-Bold", size: 16))
+                                    .padding(.leading)
+                                Spacer()
+                            }
+                            .padding(.top)
+                            Spacer()
+                            VStack (alignment: .leading) {
+                                if gameData.addedNotes.isEmpty
+                                {
                                     HStack {
-                                        Text(item)
+                                        Text("No notes added")
                                             .font(.custom("AmericanTypewriter", size: 16))
                                             .padding(.leading)
                                         Spacer()
                                     }
 
+                                } else {
+                                    ForEach(gameData.addedNotes, id: \.self) { item in
+                                        HStack {
+                                            Text(item)
+                                                .font(.custom("AmericanTypewriter", size: 16))
+                                                .padding(.leading)
+                                            Spacer()
+                                        }
+
+                                    }
                                 }
+                                Spacer()
                             }
-                            Spacer()
                         }
+
                         Spacer()
                     }
                 )

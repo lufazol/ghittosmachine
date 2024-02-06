@@ -19,7 +19,7 @@ struct RestoreButtonView: View {
                 {
                     gameData.addedNotes = []
                     gameState.notesCleaned = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                         gameState.notesCleaned = false
                     }
                 }
