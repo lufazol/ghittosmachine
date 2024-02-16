@@ -14,9 +14,12 @@ struct MenuView: View {
     var body: some View {
         ZStack {
             
+
+            
             if gameState.isPlaying {
                 MainView()
             }
+
             else {
                 
                 Image("background")
@@ -69,9 +72,7 @@ struct MenuView: View {
                 )
                 
                 Button(action: {
-                    withAnimation(Animation.easeInOut(duration: 3)) {
-                        gameState.isPlaying = true
-                    }
+                    gameState.isShowingAbout = true
                 }) {
                     RoundedRectangle(cornerRadius: 25)
                         .overlay {
@@ -88,6 +89,10 @@ struct MenuView: View {
                         .stroke(Color.black, lineWidth: 3)
                         .offset(y: 290)
                 )
+                
+                if gameState.isShowingAbout {
+                    AboutView()
+                }
             }
             
 

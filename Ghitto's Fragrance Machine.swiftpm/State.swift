@@ -90,6 +90,7 @@ class GameState: ObservableObject {
     @Published var errorSoundPlayer = SoundPlayer()
     @Published var backgroundSoundPlayer = SoundPlayer()
     @Published var menuBackgroundPlayer = SoundPlayer()
+    @Published var isShowingAbout: Bool = false
     @Published var isPlaying: Bool = false
     @Published var menuAnimationsAreOn: Bool = false
 }
