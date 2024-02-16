@@ -48,19 +48,25 @@ struct CustomerView: View {
                                     .resizable()
                                     .frame(width: 50, height: 50)
                                 VStack (alignment: .leading) {
-                                    ForEach(gameData.order!.notes, id: \.self) { item in
-                                        Text(item)
-                                            .foregroundColor(.black)
-                                            .padding(.leading)
-                                            .font(.custom("AmericanTypewriter", size: 16))
-                                    }
+                                    Text("top: " + gameData.order!.notes[0])
+                                        .foregroundColor(.black)
+                                        .padding(.leading)
+                                        .font(.custom("AmericanTypewriter", size: 16))
+                                    Text("heart: " + gameData.order!.notes[1])
+                                        .foregroundColor(.black)
+                                        .padding(.leading)
+                                        .font(.custom("AmericanTypewriter", size: 16))
+                                    Text("base: " + gameData.order!.notes[2])
+                                        .foregroundColor(.black)
+                                        .padding(.leading)
+                                        .font(.custom("AmericanTypewriter", size: 16))
                                 }
                                 Spacer()
                             }
                         }
 
                     }
-                    .frame(width: 220, height: 100)
+                    .frame(width: 250, height: 100)
                     
                     ZStack {
                         Color.clear

@@ -19,6 +19,7 @@ struct RestoreButtonView: View {
                 {
                     gameData.addedNotes = []
                     gameState.notesCleaned = true
+                    gameState.soundPlayer1.playSound(named: "bottleFill")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                         gameState.notesCleaned = false
                     }

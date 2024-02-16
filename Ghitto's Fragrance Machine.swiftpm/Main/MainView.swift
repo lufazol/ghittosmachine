@@ -52,6 +52,9 @@ struct MainView: View {
     var body: some View {
         if gameState.isInTutorial == true {
             TutorialView()
+                .onAppear {
+                    gameState.backgroundSoundPlayer.playSound(named: "tutorialSound", volume: 0.1, loops: -1)
+                }
         } else {
             ZStack {
                 Image("wall")
@@ -96,6 +99,9 @@ struct MainView: View {
                         PushView()
                     }
                 }
+            }
+            .onAppear {
+                gameState.backgroundSoundPlayer.playSound(named: "gameSound", volume: 0.07, loops: -1)
             }
         }
     }

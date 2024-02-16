@@ -13,11 +13,11 @@ struct NotePickersView: View {
 
     //@State private var selectedCategory = "heart"
 
-    @State private var selectedTopNote = "orange"
+    @State private var selectedTopNote = "bergamot"
     
     @State private var selectedHeartNote = "jasmine"
     
-    @State private var selectedBaseNote = "praline"
+    @State private var selectedBaseNote = "amber"
     
     var body: some View {
         HStack {

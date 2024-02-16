@@ -11,6 +11,14 @@ struct CommitButtonView: View {
     @EnvironmentObject var gameData: GameData
     @EnvironmentObject var gameState: GameState
 
+    func getLeverStatus() -> String {
+        if gameState.perfumeBeingAdded == true {
+            return "leverdown"
+        } else {
+            return "leverup"
+        }
+    }
+
     var body: some View {
         Button(action: {
             if gameData.addedNotes.count > 0 && gameState.bottleToAdd != "" && !gameState.perfumeOnLog
@@ -68,13 +76,13 @@ struct CommitButtonView: View {
                 }
             }
         }) {
-            Image(systemName: "plus.rectangle.portrait.fill")
+            Image(getLeverStatus())
                 .resizable()
-                .frame(width: 30, height: 40)
+                .frame(width: 70, height: 120)
                 .padding()
-                .foregroundColor(Color(hex: 0xF08080))
         }
         .padding(.trailing)
+        .buttonStyle(PlainButtonStyle())
     }
 }
 

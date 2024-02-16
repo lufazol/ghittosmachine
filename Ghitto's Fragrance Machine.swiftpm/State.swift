@@ -11,9 +11,9 @@ import Foundation
 class GameData: ObservableObject {
     @Published var addedNotes: [String] = []
     @Published var categories: [String] = ["top", "heart", "base"]
-    @Published var topNotes: [String] = ["bergamot", "orange", "cherry"]
-    @Published var heartNotes: [String] = ["rose", "jasmine", "pink pepper"]
-    @Published var baseNotes: [String] = ["vanilla", "praline", "amber"]
+    @Published var topNotes: [String] = ["bergamot", "cherry", "orange"]
+    @Published var heartNotes: [String] = ["jasmine", "pink pepper", "rose"]
+    @Published var baseNotes: [String] = ["amber", "praline", "vanilla"]
     @Published var score: Int = 0
     @Published var perfumeReady: Perfume?
     @Published var order: Perfume?
@@ -29,8 +29,9 @@ class GameData: ObservableObject {
     func generateOrder() {
         var orderNotes: [String] = []
                 
-        let numberOfNotes = Int.random(in: 1...4)
+        //let numberOfNotes = Int.random(in: 1...4)
         
+        /*
         while orderNotes.count < numberOfNotes
         {
             let randomNote = possibleNotes[Int.random(in: 0...possibleNotes.count-1)]
@@ -39,7 +40,15 @@ class GameData: ObservableObject {
             {
                 orderNotes.append(randomNote)
             }
-        }
+        }*/
+        
+        let randomTopNote = topNotes[Int.random(in: 0...topNotes.count-1)]
+        let randomHeartNote = heartNotes[Int.random(in: 0...heartNotes.count-1)]
+        let randomBaseNote = baseNotes[Int.random(in: 0...baseNotes.count-1)]
+        
+        orderNotes.append(randomTopNote)
+        orderNotes.append(randomHeartNote)
+        orderNotes.append(randomBaseNote)
 
         self.order?.notes = Array(orderNotes)
         
@@ -58,7 +67,7 @@ class GameState: ObservableObject {
     @Published var noteAlreadyAdded: Bool = false
     @Published var noBottleSelectedWarning: Bool = false
     @Published var notesCleaned: Bool = false
-    @Published var noteToAdd: String = "rose"
+    @Published var noteToAdd: String = "jasmine"
     @Published var perfumeRemoved: Bool = false
     @Published var perfumeBeingAdded: Bool = false
     @Published var perfumeOnLog: Bool = false
@@ -68,10 +77,11 @@ class GameState: ObservableObject {
     @Published var noPerfumeToSendWarning: Bool = false
     @Published var hasOrder: Bool = false
     @Published var wrongPerfumeWarning: Bool = false
-    @Published var isInTutorial: Bool = false
+    @Published var isInTutorial: Bool = true
     @Published var selectedBottle: String = ""
     @Published var isOnPlatform: Bool = false
     @Published var isMoving: Bool = false
+    @Published var addLeverIsDown: Bool = false
     @Published var isDropping: Bool = false
     @Published var mixingShouldFall: Bool = false
     @Published var soundPlayer1 = SoundPlayer()
@@ -79,6 +89,9 @@ class GameState: ObservableObject {
     @Published var soundPlayer3 = SoundPlayer()
     @Published var errorSoundPlayer = SoundPlayer()
     @Published var backgroundSoundPlayer = SoundPlayer()
+    @Published var menuBackgroundPlayer = SoundPlayer()
+    @Published var isPlaying: Bool = false
+    @Published var menuAnimationsAreOn: Bool = false
 }
 
 class Perfume: ObservableObject {
@@ -103,5 +116,10 @@ class SoundPlayer {
         } catch {
             print("Error playing sound: \(error.localizedDescription)")
         }
+    }
+    
+    func stopSound()
+    {
+        audioPlayer?.stop()
     }
 }

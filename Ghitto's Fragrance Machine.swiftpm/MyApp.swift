@@ -8,13 +8,10 @@ struct MyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MenuView()
                 .environmentObject(gameData)
                 .environmentObject(gameState)
                 .preferredColorScheme(.light)
-                .onAppear {
-                    gameState.backgroundSoundPlayer.playSound(named: "gameSound", volume: 0.07, loops: -1)
-                }
         }
     }
 }
