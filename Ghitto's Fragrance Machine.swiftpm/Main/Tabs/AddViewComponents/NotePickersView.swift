@@ -15,7 +15,7 @@ struct NotePickersView: View {
 
     @State private var selectedTopNote = "bergamot"
     
-    @State private var selectedHeartNote = "jasmine"
+    @State private var selectedHeartNote = "cinnamon"
     
     @State private var selectedBaseNote = "amber"
     
@@ -88,7 +88,7 @@ struct NotePickersView: View {
                     case "base":
                         gameState.noteToAdd = gameData.baseNotes[0]
                     default:
-                        gameState.noteToAdd = "rose"
+                        gameState.noteToAdd = "jasmine"
                     }
                 }
             }

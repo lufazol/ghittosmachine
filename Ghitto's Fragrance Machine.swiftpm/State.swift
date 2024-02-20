@@ -11,14 +11,18 @@ import Foundation
 class GameData: ObservableObject {
     @Published var addedNotes: [String] = []
     @Published var categories: [String] = ["top", "heart", "base"]
-    @Published var topNotes: [String] = ["bergamot", "cherry", "orange"]
-    @Published var heartNotes: [String] = ["jasmine", "pink pepper", "rose"]
-    @Published var baseNotes: [String] = ["amber", "praline", "vanilla"]
+    @Published var topNotes: [String] = ["bergamot", "cherry", "grapefruit", "lavender", "mint", "peach", "pitanga"]
+    @Published var heartNotes: [String] = ["cinnamon", "geranium", "jasmine", "pink pepper", "rose", "tuberose", "ylang-ylang"]
+    @Published var baseNotes: [String] = ["amber", "musk", "patchouli", "praline", "sandalwood", "tonka bean", "vanilla"]
     @Published var score: Int = 0
+    @Published var highestScore: Int = 0
+    @Published var ordersDelivered: Int = 0
+    @Published var lastOrderBottle: String = "emptybottle1"
+    @Published var timer: Timer? = nil
     @Published var perfumeReady: Perfume?
     @Published var order: Perfume?
 
-    var possibleNotes: [String] = ["bergamot", "orange", "cherry", "rose", "jasmine", "pink pepper", "vanilla", "praline", "amber"]
+    var possibleNotes: [String] = ["bergamot", "cherry", "grapefruit", "lavender", "mint", "peach", "pitanga", "cinnamon", "geranium", "jasmine", "pink pepper", "rose", "tuberose", "ylang-ylang", "amber", "musk", "patchouli", "praline", "sandalwood", "tonka bean", "vanilla"]
     var possibleBottles: [String] = ["bottle1", "bottle2", "bottle3", "bottle4"]
 
     init() {
@@ -68,6 +72,7 @@ class GameState: ObservableObject {
     @Published var noBottleSelectedWarning: Bool = false
     @Published var notesCleaned: Bool = false
     @Published var noteToAdd: String = "jasmine"
+    @Published var lastNoteAdded: String = "jasmine"
     @Published var perfumeRemoved: Bool = false
     @Published var perfumeBeingAdded: Bool = false
     @Published var perfumeOnLog: Bool = false
@@ -92,7 +97,11 @@ class GameState: ObservableObject {
     @Published var menuBackgroundPlayer = SoundPlayer()
     @Published var isShowingAbout: Bool = false
     @Published var isPlaying: Bool = false
+    @Published var firstOrderFinished: Bool = false
+    @Published var tutorialEnded: Bool = false
     @Published var menuAnimationsAreOn: Bool = false
+    @Published var isOnPlayAgainScreen: Bool = false
+    @Published var secondsRemaining: Int = 60
 }
 
 class Perfume: ObservableObject {

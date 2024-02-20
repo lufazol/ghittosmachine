@@ -24,6 +24,7 @@ struct AddButtonView: View {
             // less than 4 notes and note not already added: add note and display text
             if gameData.addedNotes.count < 4 && !(gameData.addedNotes.contains(gameState.noteToAdd))
             {
+                gameState.lastNoteAdded = gameState.noteToAdd
                 gameData.addedNotes.append(gameState.noteToAdd)
                 gameState.noteAdded = true
                 gameState.addLeverIsDown = true

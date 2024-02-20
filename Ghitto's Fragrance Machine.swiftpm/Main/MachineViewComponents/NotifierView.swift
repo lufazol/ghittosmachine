@@ -30,7 +30,7 @@ struct NotifierView: View {
                     .font(.custom("AmericanTypewriter-Bold", size: 16))
             } else if (gameState.noteAdded)
             {
-                Text("git add -a \(gameState.noteToAdd)")
+                Text("git add -a \(gameState.lastNoteAdded)")
                     .font(.custom("AmericanTypewriter-Bold", size: 16))
             } else if (gameState.notesCleaned)
             {
@@ -46,7 +46,7 @@ struct NotifierView: View {
                     .font(.custom("AmericanTypewriter-Bold", size: 16))
             } else if (gameState.perfumeBeingAdded)
             {
-                Text("git commit -m 'bottle'")
+                Text("git commit -m 'fill bottle'")
                     .font(.custom("AmericanTypewriter-Bold", size: 16))
             } else if (gameState.noPerfumeReadyWarning)
             {
@@ -70,7 +70,7 @@ struct NotifierView: View {
                     .font(.custom("AmericanTypewriter-Bold", size: 16))
             } else if (gameState.wrongPerfumeWarning)
             {
-                Text("Wrong perfume! Clean up and start again :(")
+                Text("Wrong perfume! Start again :(")
                     .font(.custom("AmericanTypewriter-Bold", size: 16))
             }
         }

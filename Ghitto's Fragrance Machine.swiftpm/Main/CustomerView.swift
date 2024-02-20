@@ -10,6 +10,8 @@ import SwiftUI
 struct CustomerView: View {
     @EnvironmentObject var gameState: GameState
     @EnvironmentObject var gameData: GameData
+    @State private var secondsRemaining = 60
+    @State private var timer: Timer? = nil
 
     var body: some View {
         Rectangle()
@@ -24,6 +26,19 @@ struct CustomerView: View {
             .overlay(
                 HStack {
                     Spacer()
+                    ZStack {
+                        Image(systemName: "hourglass.circle")
+                            .resizable()
+                            .foregroundColor(gameState.tutorialEnded ? Color(hex: 0xF08080) : .clear)
+                            .frame(width: 35, height: 35)
+                            .offset(x: 4, y: -23)
+                        Text("\(gameState.secondsRemaining)")
+                            .position(x: 36, y: 70)
+                            .font(.custom("AmericanTypewriter", size: 26))
+                            .foregroundColor(gameState.tutorialEnded ? .black :  .clear)
+                    }
+                    .frame(width: 65, height: 100)
+                    .padding(.leading)
                     ZStack {
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
                             .fill(Color(hex: 0xFFBC75))
@@ -48,18 +63,33 @@ struct CustomerView: View {
                                     .resizable()
                                     .frame(width: 50, height: 50)
                                 VStack (alignment: .leading) {
-                                    Text("top: " + gameData.order!.notes[0])
-                                        .foregroundColor(.black)
-                                        .padding(.leading)
-                                        .font(.custom("AmericanTypewriter", size: 16))
-                                    Text("heart: " + gameData.order!.notes[1])
-                                        .foregroundColor(.black)
-                                        .padding(.leading)
-                                        .font(.custom("AmericanTypewriter", size: 16))
-                                    Text("base: " + gameData.order!.notes[2])
-                                        .foregroundColor(.black)
-                                        .padding(.leading)
-                                        .font(.custom("AmericanTypewriter", size: 16))
+                                    HStack {
+                                        Text("top:")
+                                            .foregroundColor(.black)
+                                            .font(.custom("AmericanTypewriter-Bold", size: 16))
+                                        Text(gameData.order!.notes[0])
+                                            .foregroundColor(.black)
+                                            .font(.custom("AmericanTypewriter", size: 16))
+                                    }
+                                    
+                                    HStack {
+                                        Text("heart:")
+                                            .foregroundColor(.black)
+                                            .font(.custom("AmericanTypewriter-Bold", size: 16))
+                                        Text(gameData.order!.notes[1])
+                                            .foregroundColor(.black)
+                                            .font(.custom("AmericanTypewriter", size: 16))
+                                    }
+                                    
+                                    HStack {
+                                        Text("base:")
+                                            .foregroundColor(.black)
+                                            .font(.custom("AmericanTypewriter-Bold", size: 16))
+                                        Text(gameData.order!.notes[2])
+                                            .foregroundColor(.black)
+                                            .font(.custom("AmericanTypewriter", size: 16))
+                                    }
+
                                 }
                                 Spacer()
                             }
@@ -69,13 +99,19 @@ struct CustomerView: View {
                     .frame(width: 250, height: 100)
                     
                     ZStack {
-                        Color.clear
+                        Image(systemName: "trophy.circle")
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                            .foregroundColor(gameState.tutorialEnded ? Color(hex: 0xF08080) :  .clear)
+                            .offset(x: -6, y: -23)
                         Text("\(gameData.score)")
-                            .position(x: 37, y: 70)
-                            .font(.system(size: 34))
-                            .foregroundColor(.white)
+                            .position(x: 29, y: 70)
+                            .font(.custom("AmericanTypewriter", size: 26))
+                            .foregroundColor(gameState.tutorialEnded ? .black : .clear)
                     }
-                    .frame(width: 80, height: 100)
+                    .frame(width: 70, height: 100)
+                    .padding(.trailing)
+                    Spacer()
                 }
                 
             )

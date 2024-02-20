@@ -15,19 +15,19 @@ struct MainView: View {
     
     func getEmptyBottle() -> String
     {
-        if gameData.perfumeReady?.bottle == "bottle1"
+        if gameData.lastOrderBottle == "bottle1"
         {
             return "emptybottle1"
         }
-        else if gameData.perfumeReady?.bottle == "bottle2"
+        else if gameData.lastOrderBottle == "bottle2"
         {
             return "emptybottle2"
         }
-        else if gameData.perfumeReady?.bottle == "bottle3"
+        else if gameData.lastOrderBottle == "bottle3"
         {
             return "emptybottle3"
         }
-        else if gameData.perfumeReady?.bottle == "bottle4"
+        else if gameData.lastOrderBottle == "bottle4"
         {
             return "emptybottle4"
         }
@@ -98,6 +98,14 @@ struct MainView: View {
                     {
                         PushView()
                     }
+                }
+                
+                if gameState.firstOrderFinished && !gameState.tutorialEnded {
+                    EndGameView()
+                }
+                
+                if gameState.isOnPlayAgainScreen {
+                    PlayAgainView()
                 }
             }
             .onAppear {

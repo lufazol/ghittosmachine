@@ -23,6 +23,7 @@ struct CommitButtonView: View {
         Button(action: {
             if gameData.addedNotes.count > 0 && gameState.bottleToAdd != "" && !gameState.perfumeOnLog
             {
+                gameData.lastOrderBottle = gameState.bottleToAdd
                 let perfumeReady = Perfume()
                 perfumeReady.bottle = gameState.bottleToAdd
                 perfumeReady.notes = gameData.addedNotes

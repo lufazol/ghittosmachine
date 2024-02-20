@@ -54,6 +54,12 @@ struct MenuView: View {
                 Button(action: {
                     gameState.menuBackgroundPlayer.stopSound()
                     gameState.isPlaying = true
+                    gameState.menuAnimationsAreOn = false
+                    
+                    if gameState.tutorialEnded {
+                        gameState.backgroundSoundPlayer.playSound(named: "gameSound", volume: 0.07, loops: -1)
+                        gameState.menuBackgroundPlayer.stopSound()
+                    }
                 }) {
                     RoundedRectangle(cornerRadius: 25)
                         .overlay {
