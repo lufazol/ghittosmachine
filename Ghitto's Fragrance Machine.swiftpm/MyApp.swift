@@ -5,7 +5,6 @@ struct MyApp: App {
     @StateObject var gameData = GameData()
     @StateObject var gameState = GameState()
 
-
     var body: some Scene {
         WindowGroup {
             MenuView()
@@ -16,6 +15,7 @@ struct MyApp: App {
     }
 }
 
+// set extension to use Hex Colors
 extension Color {
     init(hex: UInt, alpha: Double = 1.0) {
         self.init(

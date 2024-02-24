@@ -14,14 +14,15 @@ struct MenuView: View {
     var body: some View {
         ZStack {
             
-
-            
+            // is in playing mode: show gaming screen
             if gameState.isPlaying {
                 MainView()
             }
 
+            // not in game mode: set menu elements
             else {
                 
+                // add images that make menu background
                 Image("background")
                     .resizable()
                     .ignoresSafeArea()
@@ -51,6 +52,7 @@ struct MenuView: View {
                     )
                     .offset(y: -220)
                 
+                // set button to play game
                 Button(action: {
                     gameState.menuBackgroundPlayer.stopSound()
                     gameState.isPlaying = true
@@ -77,6 +79,7 @@ struct MenuView: View {
                         .offset(y: 180)
                 )
                 
+                // set button to about section
                 Button(action: {
                     gameState.isShowingAbout = true
                 }) {

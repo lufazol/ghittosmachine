@@ -32,19 +32,6 @@ class GameData: ObservableObject {
 
     func generateOrder() {
         var orderNotes: [String] = []
-                
-        //let numberOfNotes = Int.random(in: 1...4)
-        
-        /*
-        while orderNotes.count < numberOfNotes
-        {
-            let randomNote = possibleNotes[Int.random(in: 0...possibleNotes.count-1)]
-            
-            if !orderNotes.contains(randomNote)
-            {
-                orderNotes.append(randomNote)
-            }
-        }*/
         
         let randomTopNote = topNotes[Int.random(in: 0...topNotes.count-1)]
         let randomHeartNote = heartNotes[Int.random(in: 0...heartNotes.count-1)]

@@ -26,10 +26,10 @@ struct TutorialView: View {
         "Here you just need to select the bottle that the customer asked for.",
         "After that, pull the lever again to fill it with the perfume mixing.",
         "You can see the finished perfume on the git log panel.",
-        "To throw away a finished perfume -- in case you've done something wrong --, tap the git reset --hard HEADˆ button.",
+        "To throw away a finished perfume — in case you've done something wrong —, tap the git reset --hard HEADˆ button.",
         "But let us be optimistic! If the perfume is as ordered, you can finally switch the machine to the push tab...",
         "And press the send button to 'push' it to the customer!",
-        "Speaking of customers, your first real customer just arrived!!!\nBest of luck with your first order -- and chop-chop, off to work!"
+        "Speaking of customers, your first real order just arrived!!!\nBest of luck with it — and chop-chop, off to work!"
         
     ]
     

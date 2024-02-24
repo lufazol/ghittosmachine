@@ -40,6 +40,7 @@ struct PlayAgainView: View {
                             
                         }
                         .offset(y: -120)
+                        // set button to plat again
                         Button(action: {
                             gameData.addedNotes = []
                             gameState.bottleToAdd = ""
@@ -80,6 +81,7 @@ struct PlayAgainView: View {
                                 .offset(y: 110)
                         )
                         
+                        // set button to go back to menu
                         Button(action: {
                             gameState.isPlaying = false
                             gameState.backgroundSoundPlayer.playSound(named: "menuPiano", volume: 0.37, loops: -1)
