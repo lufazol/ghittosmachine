@@ -11,7 +11,7 @@ struct CommitView: View {
 
     var body: some View {
         Rectangle()
-            .foregroundColor(Color(hex: 0xFAE1DD))
+            .foregroundColor(Color(hex: 0xeeeeee))
             .edgesIgnoringSafeArea(.all)
             .overlay(
                 HStack {
@@ -31,7 +31,7 @@ struct CommitView: View {
             )
             .background(
                 Rectangle()
-                    .stroke(Color.black, lineWidth: 3)
+                    .stroke(Color.black, lineWidth: 5)
             )
     }
 }

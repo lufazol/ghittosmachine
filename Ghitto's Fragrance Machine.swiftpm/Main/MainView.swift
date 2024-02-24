@@ -59,6 +59,7 @@ struct MainView: View {
             ZStack {
                 Image("wall")
                     .resizable()
+                    .offset(y: -5)
 
                 Image(gameState.mixingShouldFall ? "mixing" : "")
                     .resizable()

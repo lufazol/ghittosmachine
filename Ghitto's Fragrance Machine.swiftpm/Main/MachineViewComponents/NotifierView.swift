@@ -14,10 +14,10 @@ struct NotifierView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .fill(Color(hex: 0xD8E2DC))
+                .fill(Color(hex: 0xfff2cc))
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.black, lineWidth: 1)
+                        .stroke(Color.black, lineWidth: 2)
                 )
             
             if (gameState.exceededNotesWarning)

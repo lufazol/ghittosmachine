@@ -21,10 +21,10 @@ struct BottlesButtonsView: View {
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                            .fill(gameState.selectedBottle == "bottle1" ? Color(hex: 0xF08080) : Color(hex: 0xFEC5BB))
+                            .fill(gameState.selectedBottle == "bottle1" ? Color(hex: 0x8e7cc3) : Color(hex: 0xd1c6ea))
                             .overlay(
                                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                    .stroke(Color.black, lineWidth: 1)
+                                    .stroke(Color.black, lineWidth: 2)
                             )
                         
                         Image("bottle1")
@@ -40,10 +40,10 @@ struct BottlesButtonsView: View {
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                            .fill(gameState.selectedBottle == "bottle2" ? Color(hex: 0xF08080) : Color(hex: 0xFEC5BB))
+                            .fill(gameState.selectedBottle == "bottle2" ? Color(hex: 0x8e7cc3) : Color(hex: 0xd1c6ea))
                             .overlay(
                                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                    .stroke(Color.black, lineWidth: 1)
+                                    .stroke(Color.black, lineWidth: 2)
                             )
                         
                         Image("bottle2")
@@ -60,10 +60,10 @@ struct BottlesButtonsView: View {
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                            .fill(gameState.selectedBottle == "bottle3" ? Color(hex: 0xF08080) : Color(hex: 0xFEC5BB))
+                            .fill(gameState.selectedBottle == "bottle3" ? Color(hex: 0x8e7cc3) : Color(hex: 0xd1c6ea))
                             .overlay(
                                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                    .stroke(Color.black, lineWidth: 1)
+                                    .stroke(Color.black, lineWidth: 2)
                             )
                         
                         Image("bottle3")
@@ -78,10 +78,10 @@ struct BottlesButtonsView: View {
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                            .fill(gameState.selectedBottle == "bottle4" ? Color(hex: 0xF08080) : Color(hex: 0xFEC5BB))
+                            .fill(gameState.selectedBottle == "bottle4" ? Color(hex: 0x8e7cc3) : Color(hex: 0xd1c6ea))
                             .overlay(
                                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                    .stroke(Color.black, lineWidth: 1)
+                                    .stroke(Color.black, lineWidth: 2)
                             )
                         
                         Image("bottle4")

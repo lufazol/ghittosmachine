@@ -16,11 +16,11 @@ struct CustomerView: View {
     var body: some View {
         Rectangle()
             .frame(width: 400, height: 170)
-            .foregroundColor(Color(hex: 0xFAE1DD))
+            .foregroundColor(Color(hex: 0xeeeeee))
             .edgesIgnoringSafeArea(.all)
             .background(
                 Rectangle()
-                    .stroke(Color.black, lineWidth: 1.5)
+                    .stroke(Color.black, lineWidth: 3)
                     .offset(y: -18)
             )
             .overlay(
@@ -44,7 +44,7 @@ struct CustomerView: View {
                             .fill(Color(hex: 0xFFBC75))
                             .overlay(
                                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                    .stroke(Color.black, lineWidth: 1)
+                                    .stroke(Color.black, lineWidth: 2)
                             )
                         
                         if gameData.order == nil

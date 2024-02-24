@@ -99,7 +99,7 @@ struct TutorialView: View {
                                     RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
                                         .stroke(Color.pink, lineWidth: isFocusingElement ? 10 : 0)
                                 )
-                                .offset(x: -15, y: -325)
+                                .offset(x: -3, y: -335)
                         }
                         // focus on add tab
                         else if gameState.tutorialCounter == 4 {
@@ -138,7 +138,7 @@ struct TutorialView: View {
                                     RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
                                         .stroke(Color.pink, lineWidth: isFocusingElement ? 10 : 0)
                                 )
-                                .offset(x: 20, y: -335)
+                                .offset(x: 30, y: -335)
                         }
                         // focus on lever
                         else if gameState.tutorialCounter == 6 {
@@ -193,7 +193,7 @@ struct TutorialView: View {
                                     RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
                                         .stroke(Color.pink, lineWidth: isFocusingElement ? 10 : 0)
                                 )
-                                .offset(x: -125, y: 230)
+                                .offset(x: -125, y: 302)
                             RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
                                 .fill(Color.clear)
                                 .frame(width: 80, height: 80)
@@ -201,7 +201,7 @@ struct TutorialView: View {
                                     RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
                                         .stroke(Color.pink, lineWidth: isFocusingElement ? 10 : 0)
                                 )
-                                .offset(x: -80, y: -335)
+                                .offset(x: -65, y: -335)
                         }
                         // focus on lever
                         else if gameState.tutorialCounter == 11 {

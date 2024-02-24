@@ -43,7 +43,7 @@ struct ResetHardButtonView: View {
                     .cornerRadius(10)
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 1)
+                            .stroke(Color.black, lineWidth: 2)
                     )
             }
         }

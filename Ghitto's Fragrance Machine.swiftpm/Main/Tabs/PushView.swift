@@ -13,7 +13,7 @@ struct PushView: View {
 
     var body: some View {
         Rectangle()
-            .foregroundColor(Color(hex: 0xFAE1DD))
+            .foregroundColor(Color(hex: 0xeeeeee))
             .edgesIgnoringSafeArea(.all)
             .overlay(
                 ZStack {
@@ -83,14 +83,14 @@ struct PushView: View {
                             )
                             .background(
                                 Circle()
-                                    .stroke(Color.black, lineWidth: 2)
+                                    .stroke(Color.black, lineWidth: 4)
                             )
                     }
                 }
             )
             .background(
                 Rectangle()
-                    .stroke(Color.black, lineWidth: 3)
+                    .stroke(Color.black, lineWidth: 5)
             )
     }
 }

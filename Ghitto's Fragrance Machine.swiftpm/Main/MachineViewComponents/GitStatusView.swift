@@ -17,10 +17,10 @@ struct GitStatusView: View {
                 .fill(Color.white)
                 .overlay(
                     RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                        .stroke(Color.black, lineWidth: 2)
+                        .stroke(Color.black, lineWidth: 4)
                 )
             RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                .fill(Color(hex: 0xD8E2DC))
+                .fill(Color(hex: 0xfff2cc))
                 .overlay(
                     VStack {
                         if gameState.notesCleaned {

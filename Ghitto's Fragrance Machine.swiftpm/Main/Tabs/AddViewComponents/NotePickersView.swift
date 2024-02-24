@@ -24,10 +24,10 @@ struct NotePickersView: View {
             Spacer()
             ZStack {
                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                    .fill(Color(hex: 0xFEC5BB))
+                    .fill(Color(hex: 0xd1c6ea))
                     .overlay(
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                            .stroke(Color.black, lineWidth: 1)
+                            .stroke(Color.black, lineWidth: 2)
                     )
                 
                 // render first picker
@@ -44,10 +44,10 @@ struct NotePickersView: View {
             Spacer()
             ZStack {
                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                    .fill(Color(hex: 0xFEC5BB))
+                    .fill(Color(hex: 0xd1c6ea))
                     .overlay(
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                            .stroke(Color.black, lineWidth: 1)
+                            .stroke(Color.black, lineWidth: 2)
                     )
                 // render second picker
                 Picker("Notes", selection: $gameState.noteToAdd) {
